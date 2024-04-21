@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller 1 TypeScript</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="background-color: rgb(47, 139, 173); padding: 10px 0;">
+            <div class="col">
+                <span class="col-12">
+                    <img src="https://yt3.googleusercontent.com/OW0E8HOLxDKW94IE0xz5cAF1dEiUbZAhpemDjkWgHeiAsgUdURXRWX_lEymJucxSpvW3Osidms4=s900-c-k-c0x00ffffff-no-rj" alt="Logo TV" height="60">
+                    <h1 style="text-align: left; display: inline-block; vertical-align: middle; margin-left: 20px; color: black;">TV Series</h1>
+                </span>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 25px;"> 
+            <div class="col-12 col-md-6"> 
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Channel</th>
+                          <th>Seasons</th>
+                        </tr>
+                    </thead>                      
+                    <tbody id="series"></tbody>
+                </table>
+                <div class="row justify-content-end">
+                    <p class="col-12">Seasons average : <span id="AverageSeasons"></span></p>
+            </div>
+        </div>
+    </div>
+    <script  type="module" src="./scripts/Serie.js"></script>
+    <script  type="module" src="./scripts/data.js"></script>
+    <script  type="module" src="./scripts/main.js"></script>
+</body>
+</html>
