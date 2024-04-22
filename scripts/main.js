@@ -1,19 +1,36 @@
 import { series } from "./data.js";
+
 var seriesTbody = document.getElementById("series");
-var AvrSeasons = document.getElementById("AverageSeasons");
-renderSeriesInTable(series);
-AvrSeasons.innerHTML = "".concat(getAverageSeasons(series));
+var serieDetails = document.getElementById("serieDetails");
+var serieImage = document.getElementById("serieImage");
+var serieTitle = document.getElementById("serieTitle");
+var serieDescription = document.getElementById("serieDescription");
+var serieLink = document.getElementById("serieLink");
+
 function renderSeriesInTable(series) {
-    series.forEach(function (x) {
+    series.forEach(function (serie) {
         var trElement = document.createElement("tr");
-        trElement.innerHTML = "<td>".concat(x.numb, "</td>\n                            <td style=\"color: rgb(0, 191, 255);\">").concat(x.title, "</td>\n                           <td>").concat(x.channel, "</td>\n                           <td>").concat(x.seasons, "</td>");
+        trElement.innerHTML = `<td>${serie.numb}</td>
+                               <td style="color: rgb(0, 191, 255);">${serie.title}</td>
+                               <td>${serie.channel}</td>
+                               <td>${serie.seasons}</td>`;
+        trElement.onclick = function () { showDetails(serie); };
         seriesTbody.appendChild(trElement);
     });
 }
-function getAverageSeasons(series) {
-    var AverageSeasons = 0;
-    var TotalSeasons = 0;
-    series.forEach(function (serie) { return TotalSeasons = TotalSeasons + serie.seasons; });
-    AverageSeasons = TotalSeasons / series.length;
-    return AverageSeasons;
+
+function showDetails(serie) {
+    serieImage.src = serie.urlImage;
+    serieTitle.textContent = serie.title;
+    serieDescription.textContent = serie.description;
+    serieLink.href = serie.url;
+    serieDetails.style.display = 'block';
 }
+
+function getAverageSeasons(series) {
+    var totalSeasons = series.reduce(function (acc, serie) { return acc + serie.seasons; }, 0);
+    return totalSeasons / series.length;
+}
+
+renderSeriesInTable(series);
+document.getElementById("AverageSeasons").textContent = `${getAverageSeasons(series)}`;

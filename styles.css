@@ -1,5 +1,13 @@
-header {
-    background-color: #57a5f4; 
-    color: #000000;
+.card {
+    margin-top: 20px;
+}
+.table {
+    margin-bottom: 20px;
+}
+.table-container {
+    margin-top: 25px; 
 }
 
+.table {
+    background-color: rgb(201, 201, 201); 
+}
